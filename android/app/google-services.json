@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "825675043936",
+    "project_id": "it-futurz-applications",
+    "storage_bucket": "it-futurz-applications.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825675043936:android:c60f297557ab63c201df05",
+        "android_client_info": {
+          "package_name": "com.service.the_next_big_thing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAejCvrlwSrcz-ejy8SUApxgO9qA4hCtwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
