@@ -7,10 +7,6 @@ Decoration decoration = Decoration();
 class Decoration {
   ColorScheme get colorScheme => Theme.of(Get.context!).colorScheme;
 
-  Color selectionColor(BuildContext context) => colorScheme.secondaryContainer;
-
-  Color selectionBorderColor(BuildContext context) => colorScheme.onSecondaryContainer;
-
   BorderRadius allBorderRadius(double radius) {
     return BorderRadius.all(Radius.circular(radius));
   }
@@ -45,44 +41,6 @@ class Decoration {
       topRight: Radius.circular(selectedSide[1] != null ? radius : 0),
       bottomLeft: Radius.circular(selectedSide[2] != null ? radius : 0),
       bottomRight: Radius.circular(selectedSide[3] != null ? radius : 0),
-    );
-  }
-
-  List<Color> get primaryGradientColors => [colorScheme.primaryContainer, colorScheme.primary];
-
-  List<Color> get secondaryGradientColors => [colorScheme.secondaryContainer, colorScheme.secondary];
-
-  List<Color> get deleteGradientColors => [colorScheme.errorContainer, colorScheme.error];
-
-  List<Color> get appliedGradientColors => [colorScheme.tertiaryContainer, colorScheme.tertiary];
-
-  List<Color> get removeGradientColors => [colorScheme.errorContainer, colorScheme.error];
-
-  List<Color> get boxesGradientColors => [colorScheme.surfaceContainer, colorScheme.onSurface];
-
-  RadialGradient commonGradient(List<Color> colors) => RadialGradient(center: const Alignment(0, 4.6), radius: 2.5, colors: colors);
-
-  RadialGradient get primaryGradient => commonGradient(primaryGradientColors);
-
-  RadialGradient get secondaryGradient => commonGradient(secondaryGradientColors);
-
-  RadialGradient get deleteGradient => commonGradient(deleteGradientColors);
-
-  RadialGradient get appliedGradient => commonGradient(appliedGradientColors);
-
-  RadialGradient get removeGradient => commonGradient(removeGradientColors);
-
-  RadialGradient get boxesGradient => commonGradient(boxesGradientColors);
-
-  BoxDecoration splashDecoration() {
-    return BoxDecoration(
-      gradient: RadialGradient(center: const Alignment(1.00, 1.00), radius: 1.43, colors: [colorScheme.primaryContainer, colorScheme.primary]),
-    );
-  }
-
-  BoxDecoration scaffoldDecoration() {
-    return BoxDecoration(
-      gradient: RadialGradient(center: const Alignment(1.00, 1.00), radius: 1.43, colors: [colorScheme.primaryContainer, colorScheme.primary]),
     );
   }
 }

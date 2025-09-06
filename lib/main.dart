@@ -118,10 +118,17 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-// Splash
-// Register
-// Login
-// Verification
-// Guest Login
-// Dashboard
-// Profile Management
+/// Tasks Competed///
+/* Splash */
+/* Introduction */
+/* Login */
+/* Guest */
+/* Verification */
+/* Register */
+
+/// Tasks Pending///
+/* Dashboard */
+/* Profile */
+/* Get Videos # Condition Guest user show getSampleVideos and regular user show getSampleVideos & getVideos */
+/* Get Session # Condition Guest user show sampleUpcomingSession and regular user show sampleUpcomingSession & upcomingSession & requestForSessionUrl */
+/* Get Staff # Condition regular user create staff, get staff's, update staff, delete staff, get staff */

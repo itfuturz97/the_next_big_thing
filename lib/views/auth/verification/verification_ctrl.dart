@@ -16,7 +16,7 @@ class VerificationCtrl extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    mobileNumber = Get.arguments['mobile_number'] ?? '';
+    mobileNumber = Get.arguments?['mobile_number'] ?? '';
     if (mobileNumber.isEmpty) {
       toaster.error("Mobile number not provided");
       Get.back();
@@ -50,7 +50,6 @@ class VerificationCtrl extends GetxController {
   }
 
   void resendOtp() async {
-    isLoading(true);
     try {
       final getToken = await notificationService.getToken();
       final deviceId = await helper.getDeviceUniqueId();
@@ -63,8 +62,6 @@ class VerificationCtrl extends GetxController {
       }
     } catch (e) {
       toaster.error("An error occurred: $e");
-    } finally {
-      isLoading(false);
     }
   }
 }

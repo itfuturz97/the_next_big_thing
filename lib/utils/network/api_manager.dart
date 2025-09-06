@@ -10,7 +10,7 @@ import 'package:the_next_big_thing/utils/network/api_config.dart';
 import 'package:the_next_big_thing/utils/routes/route_name.dart';
 import 'package:the_next_big_thing/utils/storage.dart';
 import 'package:the_next_big_thing/utils/toaster.dart';
-import 'package:the_next_big_thing/views/splash/splash_ctrl.dart';
+import 'package:the_next_big_thing/views/auth/splash/splash_ctrl.dart';
 
 Dio dio = Dio();
 

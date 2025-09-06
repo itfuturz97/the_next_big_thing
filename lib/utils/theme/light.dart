@@ -5,33 +5,33 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ThemeConfig {
   static MaterialColor createPrimarySwatch() {
-    return MaterialColor(0xFF2C3E50, {
-      100: Color(0xFFE8EAF0),
-      200: Color(0xFFD1D6E0),
-      300: Color(0xFFBAC2D0),
-      400: Color(0xFFA3AEC0),
-      500: Color(0xFF2C3E50),
-      600: Color(0xFF34495E),
-      700: Color(0xFF2C3E50),
-      800: Color(0xFF1A252F),
-      900: Color(0xFF0F1419),
+    return MaterialColor(0xFF2C1810, {
+      100: Color(0xFFFDF6E8),
+      200: Color(0xFFFBEDD1),
+      300: Color(0xFFF9E4BA),
+      400: Color(0xFFF7DBA3),
+      500: Color(0xFF2C1810),
+      600: Color(0xFF8B4513),
+      700: Color(0xFF2C1810),
+      800: Color(0xFF1A0F08),
+      900: Color(0xFF0F0804),
     });
   }
 
   static ThemeData getThemeByIndex(BuildContext context) {
-    return _classicTheme(context);
+    return _logoBasedTheme(context);
   }
 
-  static const _classicColorScheme = ColorScheme(
+  static const _logoBasedColorScheme = ColorScheme(
     brightness: Brightness.light,
-    primary: Color(0xFF2C3E50),
+    primary: Color(0xFF2C1810),
     onPrimary: Color(0xFFFFFFFF),
-    primaryContainer: Color(0xFFE8EAF0),
-    onPrimaryContainer: Color(0xFF0F1419),
-    secondary: Color(0xFFD4AF37),
-    onSecondary: Color(0xFF000000),
-    secondaryContainer: Color(0xFFFDF6E3),
-    onSecondaryContainer: Color(0xFF5D4E37),
+    primaryContainer: Color(0xFFFDF6E8),
+    onPrimaryContainer: Color(0xFF2C1810),
+    secondary: Color(0xFFF4C430),
+    onSecondary: Color(0xFF2C1810),
+    secondaryContainer: Color(0xFFFDF9E8),
+    onSecondaryContainer: Color(0xFF8B4513),
     tertiary: Color(0xFF8B4513),
     onTertiary: Color(0xFFFFFFFF),
     tertiaryContainer: Color(0xFFF5E6D3),
@@ -40,22 +40,22 @@ class ThemeConfig {
     errorContainer: Color(0xFFFDEDED),
     onError: Color(0xFFFFFFFF),
     onErrorContainer: Color(0xFF5A1A1A),
-    surface: Color(0xFFFFFDF7),
-    onSurface: Color(0xFF1C1B1F),
-    surfaceContainer: Color(0xFFF8F6F0),
-    surfaceContainerHighest: Color(0xFFF0EDE5),
-    onSurfaceVariant: Color(0xFF49454F),
-    outline: Color(0xFF79747E),
-    onInverseSurface: Color(0xFFF4EFF4),
-    inverseSurface: Color(0xFF313033),
-    inversePrimary: Color(0xFF85A3C1),
+    surface: Color(0xFFFFFAF5),
+    onSurface: Color(0xFF2C1810),
+    surfaceContainer: Color(0xFFFBF5ED),
+    surfaceContainerHighest: Color(0xFFF7EFDF),
+    onSurfaceVariant: Color(0xFF6B4423),
+    outline: Color(0xFFC4A484),
+    onInverseSurface: Color(0xFFFDF6E8),
+    inverseSurface: Color(0xFF2C1810),
+    inversePrimary: Color(0xFFF4C430),
     shadow: Color(0xFF000000),
-    surfaceTint: Color(0xFF2C3E50),
-    outlineVariant: Color(0xFFCAC4D0),
+    surfaceTint: Color(0xFF2C1810),
+    outlineVariant: Color(0xFFE6D4C0),
     scrim: Color(0xFF000000),
   );
 
-  static ThemeData _classicTheme(BuildContext context) => _buildTheme(_classicColorScheme, context);
+  static ThemeData _logoBasedTheme(BuildContext context) => _buildTheme(_logoBasedColorScheme, context);
 
   static ThemeData _buildTheme(ColorScheme colorScheme, BuildContext context) {
     return ThemeData(
@@ -65,7 +65,7 @@ class ThemeConfig {
       textTheme: GoogleFonts.poppinsTextTheme().apply(bodyColor: colorScheme.onSurface, displayColor: colorScheme.onSurface),
       cardTheme: cardTheme(colorScheme),
       appBarTheme: appBarTheme(colorScheme),
-      dialogTheme: dialogTheme,
+      dialogTheme: dialogTheme(colorScheme),
       elevatedButtonTheme: elevatedButtonTheme(colorScheme),
       outlinedButtonTheme: outlinedButtonTheme(colorScheme),
       textButtonTheme: textButtonTheme(colorScheme),
@@ -76,24 +76,24 @@ class ThemeConfig {
         textTheme: CupertinoTextThemeData(textStyle: GoogleFonts.poppins(color: colorScheme.onSurface)),
       ),
       bottomSheetTheme: BottomSheetThemeData(
-        elevation: 4,
+        elevation: 8,
         backgroundColor: colorScheme.surface,
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(16))),
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
       ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      splashColor: colorScheme.primary.withOpacity(0.12),
-      highlightColor: colorScheme.primary.withOpacity(0.08),
+      splashColor: colorScheme.secondary.withOpacity(0.12),
+      highlightColor: colorScheme.secondary.withOpacity(0.08),
     );
   }
 
   static CardThemeData cardTheme(ColorScheme colorScheme) {
     return CardThemeData(
-      elevation: 2,
+      elevation: 4,
       color: colorScheme.surface,
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16))),
       clipBehavior: Clip.antiAlias,
-      surfaceTintColor: colorScheme.surface,
-      shadowColor: colorScheme.shadow.withOpacity(0.1),
+      surfaceTintColor: colorScheme.secondary.withOpacity(0.05),
+      shadowColor: colorScheme.shadow.withOpacity(0.15),
     );
   }
 
@@ -102,13 +102,13 @@ class ThemeConfig {
       elevation: 0,
       centerTitle: false,
       titleSpacing: 0.0,
-      scrolledUnderElevation: 1,
+      scrolledUnderElevation: 2,
       backgroundColor: colorScheme.surface,
       foregroundColor: colorScheme.primary,
       shadowColor: colorScheme.shadow,
-      surfaceTintColor: colorScheme.surfaceTint,
+      surfaceTintColor: colorScheme.secondary.withOpacity(0.05),
       iconTheme: IconThemeData(color: colorScheme.primary),
-      titleTextStyle: GoogleFonts.poppins(fontSize: 20, letterSpacing: 0.5, fontWeight: FontWeight.w600),
+      titleTextStyle: GoogleFonts.poppins(fontSize: 22, letterSpacing: 0.5, fontWeight: FontWeight.w700, color: colorScheme.primary),
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark,
@@ -118,21 +118,25 @@ class ThemeConfig {
     );
   }
 
-  static const DialogThemeData dialogTheme = DialogThemeData(
-    elevation: 4,
-    backgroundColor: Color(0xFFFFFDF7),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
-  );
+  static DialogThemeData dialogTheme(ColorScheme colorScheme) {
+    return DialogThemeData(
+      elevation: 8,
+      backgroundColor: colorScheme.surface,
+      surfaceTintColor: colorScheme.secondary.withOpacity(0.05),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16))),
+    );
+  }
 
   static ElevatedButtonThemeData elevatedButtonTheme(ColorScheme colorScheme) {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         foregroundColor: colorScheme.onPrimary,
         backgroundColor: colorScheme.primary,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-        textStyle: GoogleFonts.poppins(fontWeight: FontWeight.w600),
-        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        textStyle: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 16),
+        elevation: 3,
+        shadowColor: colorScheme.shadow.withOpacity(0.3),
       ),
     );
   }
@@ -141,10 +145,10 @@ class ThemeConfig {
     return OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: colorScheme.primary,
-        side: BorderSide(color: colorScheme.primary, width: 1.5),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-        textStyle: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+        side: BorderSide(color: colorScheme.primary, width: 2),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        textStyle: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 16),
       ),
     );
   }
@@ -153,8 +157,9 @@ class ThemeConfig {
     return TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: colorScheme.primary,
-        textStyle: GoogleFonts.poppins(fontWeight: FontWeight.w600),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        textStyle: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
     );
   }
@@ -164,23 +169,33 @@ class ThemeConfig {
       filled: true,
       fillColor: colorScheme.surfaceContainerHighest,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(color: colorScheme.outline),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(color: colorScheme.outline),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: colorScheme.primary, width: 2),
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(color: colorScheme.secondary, width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(color: colorScheme.error),
       ),
       labelStyle: GoogleFonts.poppins(color: colorScheme.onSurfaceVariant, fontWeight: FontWeight.w500),
       hintStyle: GoogleFonts.poppins(color: colorScheme.onSurfaceVariant.withOpacity(0.7)),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
     );
   }
 
   static IconThemeData iconTheme(ColorScheme colorScheme) {
     return IconThemeData(color: colorScheme.onSurface, size: 24);
   }
+
+  static Color get logoGolden => const Color(0xFFF4C430);
+  static Color get logoDarkBrown => const Color(0xFF2C1810);
+  static Color get logoWarmCream => const Color(0xFFFDF6E8);
+  static LinearGradient get logoGradient => LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [logoGolden.withOpacity(0.1), logoWarmCream]);
 }
