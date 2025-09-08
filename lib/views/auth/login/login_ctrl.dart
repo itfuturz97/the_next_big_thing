@@ -49,6 +49,7 @@ class LoginCtrl extends GetxController {
     isGuestLoading(true);
     try {
       toaster.success("Logged in as guest!");
+      await write(AppSession.isGuest, true);
       Get.offAllNamed(AppRouteNames.dashboard);
     } catch (e) {
       toaster.error("Guest login failed: $e");
